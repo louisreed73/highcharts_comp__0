@@ -1,54 +1,73 @@
-/* import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faCheck, faAngleLeft } from "@fortawesome/free-solid-svg-icons/";
 
-import 'bootstrap/js/dist/collapse.js';
-import 'bootstrap/js/dist/carousel.js';
 
-library.add(faCheck);
-library.add(faAngleLeft);
-dom.watch(); */
+import * as utilidades from './utilidades';
 
 import '../scss/commonSCSS/estilo.scss';
 
-import '../imgs/coches/img2.png';
-import '../imgs/img1.png';
 
+let {log, dir, table, timeEnd, time} = console;
 
-//Polyfill custom Event
+const contenedor = document.querySelector("#container"),
+    imgCanvas = document.querySelector(".imgCanvas"),
+    imgContainer = document.querySelector("#imgContainer"),
+    linkDescarga = document.querySelector("#imgContainer a"),
+    descargaPDF = document.querySelector(".btnContainer");
 
-/* 
-(function () {
-    if (typeof window.CustomEvent === "function") return false; //If not IE
-
-    function CustomEvent(event, params) {
-        params = params || { bubbles: false, cancelable: false, detail: undefined };
-        var evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-        return evt;
-    }
-
-    CustomEvent.prototype = window.Event.prototype;
-
-    window.CustomEvent = CustomEvent;
-})();
- */
-
-/* 
-padre.addEventListener("click",function (e){
-    log(this);
-
-    [...hijos].forEach(element => {
-        element.dispatchEvent(new CustomEvent("veronica",{
-            bubbles:true
-        }))
-    });
-}) */
-
-let { log, dir, table, timeEnd, time } = console;
-
-log("Hola!!!!")
+let {
+    Highcharts,
+    configuracion1,
+    configuracion2,
+    configuracion3,
+    configuracion4,
+    _func,
+    ObjGrafico
+} = utilidades;
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* -------------------------------------------------
+    -------------------------------------------------
+    CHART1
+    ------------------------------------------------- */
+    let myChart1 = new ObjGrafico("container1", "bar", configuracion1);
+
+    /* -------------------------------------------------
+    -------------------------------------------------
+    CHART2
+    ------------------------------------------------- */
+
+    let myChart2 = new ObjGrafico("container2", "column", configuracion2);
+
+    /* -------------------------------------------------
+    -------------------------------------------------
+    CHART3
+    ------------------------------------------------- */
+
+    let myChart3 = new ObjGrafico("container3", "pie", configuracion3);
+
+    /* -------------------------------------------------
+    -------------------------------------------------
+    CHART4
+    ------------------------------------------------- */
+
+    var myChart4 = Highcharts.chart('container4', configuracion4);
 
 
+
+    document.querySelector(".btn").addEventListener("click", function (e) {
+
+   
+
+            _func(contenedor,
+                 imgCanvas,
+                  imgContainer,
+                   linkDescarga,
+                    descargaPDF);
+
+
+
+    })
+
+});

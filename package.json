@@ -11,7 +11,10 @@
   "author": "",
   "license": "lo que me salga del pijo",
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"    
+    "@babel/polyfill": "^7.4.4",
+    "highcharts": "^7.2.1",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
