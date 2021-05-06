@@ -12,7 +12,7 @@
   "license": "lo que me salga del pijo",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "highcharts": "^7.2.1",
+    "highcharts": "^9.0.0",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3"
   },
